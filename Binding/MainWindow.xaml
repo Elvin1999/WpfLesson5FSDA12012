@@ -1,0 +1,204 @@
+﻿<Window x:Class="Binding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Binding" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="850">
+    <Grid>
+
+        <!--<ListView Name="listview">
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Date" Width="200"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding DayOfWeek}" Header="Day Of Week" Width="200"></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Year}" Header="Year" Width="200"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+            
+            <sys:DateTime>3/3/2014</sys:DateTime>
+            <sys:DateTime>10/10/2018</sys:DateTime>
+            <sys:DateTime>1/20/2020</sys:DateTime>
+            
+        </ListView>-->
+
+
+
+        <!--<ListView ItemsSource="{Binding Books}" Name="listview" FontSize="{Binding MyWidth}" FontFamily="Comic Sans MS" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id"  Width="50" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Author}" Header="Author"  Width="150" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="Title"  Width="150" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Genre}" Header="Genre"  Width="150" ></GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Publisher}" Header="Publisher"  Width="150" ></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>-->
+
+
+
+        <!--<Menu>
+            <MenuItem Header="File" FontSize="22" Foreground="DeepPink">
+
+                <MenuItem Foreground="DeepSkyBlue" Header="New ...">
+                    <MenuItem.Icon>
+                        <Image Source="Images/logo.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Open ..."/>
+                <Separator/>
+                <MenuItem Header="Save"/>
+                <MenuItem Header="Save As"/>
+
+                <MenuItem Header="Help">
+                    <MenuItem Header="Help .. Help ..."/>
+                </MenuItem>
+
+            </MenuItem>
+        </Menu>-->
+
+
+
+        <!--<Button Content="Right Click Me" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Item 1"></MenuItem>
+                    <MenuItem Header="Item 2"></MenuItem>
+                    <MenuItem Header="Item 3"></MenuItem>
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>-->
+
+
+        <!--<Grid Background="DeepSkyBlue">
+            <Grid.ContextMenu>
+                <ContextMenu Background="Black">
+                    <MenuItem Foreground="WhiteSmoke" FontSize="25" Header="MenuItem 1"  ></MenuItem>
+                    <MenuItem Foreground="WhiteSmoke" FontSize="25" Header="MenuItem 2"  ></MenuItem>
+                    <MenuItem Foreground="WhiteSmoke" FontSize="25" Header="MenuItem 3"  ></MenuItem>
+                </ContextMenu>
+            </Grid.ContextMenu>
+        </Grid>-->
+
+
+
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*" ></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+        </Grid.RowDefinitions>-->
+
+
+        <!--<ToolBar>
+            <Image Width="50" Height="50" Source="Images/logo.png" ></Image>
+            <Button Width="100" Height="50" Content="Hi Wpf" ></Button>
+            <TextBlock VerticalAlignment="Center" >Hello</TextBlock>
+        </ToolBar>-->
+
+
+        <!--<TreeView FontSize="22">
+            <TreeViewItem Header="Desktop" >
+
+                <TreeViewItem>
+                    <TreeViewItem.Header>
+                        <StackPanel>
+                            <CheckBox>Is Okay</CheckBox>
+                            <Image Width="40" Height="40" Source="Images/logo.png" ></Image>
+                            <TextBlock>User</TextBlock>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+                </TreeViewItem>
+
+
+                <TreeViewItem Header="Public" ></TreeViewItem>
+                <TreeViewItem Header="Computer" >
+                    <TreeViewItem Header="Local Disc">
+                        <TreeViewItem Header="Program Files" ></TreeViewItem>
+                        <TreeViewItem Header="Users" ></TreeViewItem>
+                        <TreeViewItem Header="Windows" ></TreeViewItem>
+                    </TreeViewItem>
+                </TreeViewItem>
+
+                <TreeViewItem Header="DVD Drive" >
+                    
+                </TreeViewItem>
+                
+            </TreeViewItem>
+            
+        </TreeView>-->
+
+
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5" CornerRadius="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBox 
+                    Width="650" 
+                    Margin="5"
+                    BorderThickness="0"
+                    FontSize="26"
+                    >
+                </TextBox>
+                <Button 
+                    
+                    Width="140"
+                    Margin="5"
+                    BorderBrush="White"
+                    BorderThickness="1"
+                    Background="DeepSkyBlue"
+                    Content="Send"
+                    FontSize="20"
+                    >
+                    
+                </Button>
+            </StackPanel>
+        </Border>-->
+
+
+
+        <ListBox ItemsSource="{Binding Books}"  Background="LightGoldenrodYellow" Name="listbox">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel></VirtualizingStackPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="{Binding ElementName=listbox,Path=ActualWidth}" >
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Height="100" Width="100" Source="{Binding ImagePath}"></Image>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="1">
+                            <TextBlock FontSize="24" FontFamily="Comic Sans MS" Width="150" Text="{Binding Title}"></TextBlock>
+                            <TextBlock FontSize="24" FontFamily="Comic Sans MS" Width="150" Text="{Binding Author}"></TextBlock>
+                            <TextBlock FontSize="24" FontFamily="Comic Sans MS" Width="150" Text="{Binding Pages}"></TextBlock>
+                        </StackPanel>
+
+                        <Button Grid.Column="2" Margin="10" Padding="15" FontSize="20" >Buy</Button>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+        </ListBox>
+        
+        
+        
+        
+
+    </Grid>
+</Window>
